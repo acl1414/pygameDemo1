@@ -14,14 +14,14 @@ py.init()       # INITIALIZATION OF THE PYGAME
 py.font.init()  # INITIALIZATION OF SYSTEM FONTS
  
 
-menu_screen = MenuScreen("Menu Screen")      # CREATING THE OBJECT OF THE CLASS Screen FOR MENU SCREEN
-game_screen = GameScreen("Control Screen")  # CREATING THE OBJECT OF THE CLASS Screen FOR CONTROL SCREEN
+# Création des objets screen
+menu_screen = MenuScreen("Menu Screen")      
+game_screen = GameScreen("Control Screen")  
 
  
-win = menu_screen.makeCurrentScreen()    # CALLING OF THE FUNCTION TO MAKE THE SCREEN FOR THE WINDOW
+#win = menu_screen.makeCurrentScreen()    # CALLING OF THE FUNCTION TO MAKE THE SCREEN FOR THE WINDOW
+menu_screen.makeCurrentScreen()
 
-print("menu heigt",menu_screen.height)
-print("menu screen",menu_screen.screen)
 
 current_screen = menu_screen
 state = 0
@@ -35,6 +35,7 @@ toggle = False
 while not done:
     
     current_screen.screenUpdate()     
+    current_screen.screenDisplay()
  
  
     # Check si l'écran doit changer
@@ -43,10 +44,10 @@ while not done:
         pass
     else :
         if (newScreen == 0) :
-            win = menu_screen.makeCurrentScreen()   
+            menu_screen.makeCurrentScreen()   
             current_screen = menu_screen
         else :         
-            win = game_screen.makeCurrentScreen()   
+            game_screen.makeCurrentScreen()   
             current_screen = game_screen
 
 

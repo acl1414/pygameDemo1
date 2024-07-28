@@ -18,17 +18,19 @@ class GameScreen(Screen):
   
     def screenUpdate(self):
 
-          super()
-          print("GameSCreen Update")
-          fonte = font.SysFont('comicsansms', 36)
-          text = fonte.render('GAME SCREEN', True, (0, 255, 0), (0, 5, 255))
-          self.screen.blit(text, (20, 20))
+      super()
+         
+      k = key.get_pressed()
+      if k[K_RETURN]:
+        super().endCurrentScreen()
+        super().changeCurrentState(0)
+        print("ENTER PRESS")
 
 
-          k = key.get_pressed()
-          if k[K_RETURN]:
-            super().endCurrentScreen()
-            super().changeCurrentState(0)
-            print("ENTER PRESS")
+    def screenDisplay(self):
+       
+      fonte = font.SysFont('comicsansms', 36)
+      text = fonte.render('GAME SCREEN', True, (0, 255, 0), (0, 5, 255))
+      self.screen.blit(text, (20, 20))
     
        
