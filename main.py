@@ -7,16 +7,15 @@ from screen import Screen
 from menuScreen import MenuScreen
 from gameScreen import GameScreen
  
-from button import Button 
-
+from constantes import Constantes
 
 py.init()       # INITIALIZATION OF THE PYGAME
 py.font.init()  # INITIALIZATION OF SYSTEM FONTS
  
 
 # Création des objets screen
-menu_screen = MenuScreen("Menu Screen")      
-game_screen = GameScreen("Control Screen")  
+menu_screen = MenuScreen("Menu Screen",Constantes.width,Constantes.height)      
+game_screen = GameScreen("Control Screen",Constantes.width,Constantes.height)  
 
  
 #win = menu_screen.makeCurrentScreen()    # CALLING OF THE FUNCTION TO MAKE THE SCREEN FOR THE WINDOW

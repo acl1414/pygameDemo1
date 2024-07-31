@@ -12,12 +12,13 @@ class MenuScreen(Screen):
     # INITIALIZATION OF WINDOW HAVING TITLE,
     # WIDTH, HEIGHT AND COLOUR
     # HERE (0,0,255) IS A COLOUR CODE
-    def __init__(self, title, width=440, height=445, fill=(0, 0, 255)):
-      super().__init__(title, width=440, height=445, fill=(0, 0, 255))
+    def __init__(self, title, width, height, fill=(0, 0, 255)):
+      super().__init__(title, width, height, fill=(0, 0, 255))
 
+      self.width=width
       # CREATION DES BUTTON
-      self.MENU_BUTTON2 = Button(150, 200, 150, 50, (255, 250, 250), (255, 0, 0), "TimesNewRoman", (255, 255, 255), "JOUER")
-      self.MENU_BUTTON_QUIT = Button(150, 270, 150, 50, (255, 250, 250), (255, 10, 10), "TimesNewRoman", (255, 255, 255), "QUITTER")
+      self.MENU_BUTTON2 = Button((width-150)/2, 200, 150, 50, (255, 250, 250), (255, 0, 0), "TimesNewRoman", (255, 255, 255), "JOUER")
+      self.MENU_BUTTON_QUIT = Button((width-150)/2, 270, 150, 50, (255, 250, 250), (255, 10, 10), "TimesNewRoman", (255, 255, 255), "QUITTER")
       
       # Load custom font
       self.custom_font = py.font.Font("assets/PIXEL CRAFT.ttf", 48)
@@ -52,7 +53,7 @@ class MenuScreen(Screen):
     def screenDisplay(self):
       
       text_menu_width, text_height = self.custom_font.size("MENU")   # recupération with of text
-      text_menu_posX = (440 - (text_menu_width) ) / 2                          # récupération x pour centrer text
+      text_menu_posX = (self.width - (text_menu_width) ) / 2                          # récupération x pour centrer text
 
       text = self.custom_font.render('MENU', True, (0, 255, 0), (0, 0, 0))
       self.screen.blit(text, (text_menu_posX, 20))
